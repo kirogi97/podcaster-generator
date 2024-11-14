@@ -3,12 +3,12 @@ FROM ubuntu:latest
 # Update package list and install dependencies
 RUN apt-get update && apt-get install -y \
     python3.10 \
-    python3-pip \
+    python3-pip3 \
     git \
  && apt-get upgrade -y
 
 # Install PyYAML Python package
-RUN pip install PyYAML
+RUN pip3 install PyYAML
 
 # Copy the Python script and entrypoint script
 COPY feed.py /usr/bin/feed.py
