@@ -3,13 +3,12 @@ FROM ubuntu:latest
 # Update package list and install dependencies
 RUN apt-get update && apt-get install -y \
     python3.10 \
-    python3.10-dev \          # Needed for building certain Python packages
+    python3.10-dev \          
     python3-pip \
-    python3-venv \            # To use virtual environments (optional)
+    python3-venv \           
     git \
-    gcc \                     # Required for compiling PyYAML and other packages
-    libyaml-dev               # Required for PyYAML to compile correctly
-
+    gcc \                    
+    libyaml-dev              
 # Ensure pip is up-to-date
 RUN python3.10 -m pip install --upgrade pip
 
