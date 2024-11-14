@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
  && apt-get upgrade -y
 
 # Install PyYAML Python package
-RUN pipx install PyYAML
+RUN pip install PyYAML
 
 # Copy the Python script and entrypoint script
 COPY feed.py /usr/bin/feed.py
