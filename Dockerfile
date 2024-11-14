@@ -1,14 +1,20 @@
-FROM ubuntu:latest
+FROM ubuntu:22.04  # Use a stable version of Ubuntu that supports Python 3.10
 
 # Update package list and install dependencies
 RUN apt-get update && apt-get install -y \
+    software-properties-common && \
+    add-apt-repository ppa:deadsnakes/ppa && \
+    apt-get update && \
+    apt-get install -y \
     python3.10 \
-    python3.10-dev \          
+    python3.10-dev \        # Development headers for Python 3.10
+    python3.10-venv \       # Python 3.10 virtual environment support
     python3-pip \
-    python3-venv \           
     git \
-    gcc \                    
-    libyaml-dev              
+    gcc \                   # Required for compiling C extensions like PyYAML
+    libyaml-dev \           # Required for PyYAML
+    build-essential         # Required for building Python packages (like PyYAML)
+
 # Ensure pip is up-to-date
 RUN python3.10 -m pip install --upgrade pip
 
