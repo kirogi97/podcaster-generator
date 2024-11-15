@@ -4,6 +4,10 @@ RUN apt-get update && apt-get install -y \
     python3.10 \
     python3-pip \
     git
+    gcc \
+    python3-dev \
+    libyaml-dev \
+    build-essential
 
 RUN pip3 install PyYAML
 
