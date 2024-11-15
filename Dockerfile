@@ -1,6 +1,9 @@
 # Use a stable Ubuntu version (e.g., 22.04)
 FROM ubuntu:22.04
 
+# Set the environment variable to non-interactive to avoid tzdata prompts
+ENV DEBIAN_FRONTEND=noninteractive
+
 # Install dependencies and the deadsnakes PPA repository to get Python 3.11
 RUN apt-get update && apt-get install -y \
     software-properties-common \
@@ -13,6 +16,7 @@ RUN apt-get update && apt-get install -y \
     gcc \
     libyaml-dev \
     build-essential \
+    tzdata \
     && apt-get clean
 
 # Upgrade pip to the latest version
